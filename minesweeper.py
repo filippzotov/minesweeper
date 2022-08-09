@@ -148,14 +148,18 @@ class Minesweeper(tk.Tk):
             for j in range(10):
                 if self.newt[i][j] == -1:
                     self.btnlist[i][j]["text"] = "B"
-        msg = "Nigga u lost.\n Начать заново?"
+        msg = "u lost.\n Начать заново?"
         f = mb.askyesno("END", msg)
         if f:
             self.start_game()
 
     # Победа
     def win_game(self):
-        msg = "Nigga u win.\n Начать заново?"
+        for i in range(10):
+            for j in range(10):
+                if self.newt[i][j] == -1:
+                    self.btnlist[i][j]["text"] = "B"
+        msg = "u win.\n Начать заново?"
         f = mb.askyesno("END", msg)
         if f:
             self.start_game()
@@ -189,6 +193,7 @@ class Minesweeper(tk.Tk):
             2: "BLUE",
             3: "RED",
             4: "BROWN",
+            5: "PURPLE",
         }
         self.btnlist[x][y].configure(
             text=text,
